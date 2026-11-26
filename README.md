@@ -16,6 +16,8 @@ JWT-аутентификация, ролевая авторизация (Admin/C
 ## Тестирование ролей
 1. POST /api/auth/register - создаёт пользователя с ролью Client.
 2. Повысить до Admin (Exec контейнера БД): psql -U postgres -d CarWashDb -c "UPDATE \"Users\" SET \"Role\" = 1 WHERE \"Email\" = '<email>';"
+1. POST /api/auth/register - создаёт пользователя с ролью Client.
+2. Повысить до Admin (Exec контейнера БД): psql -U postgres -d CarWashDb -c "UPDATE \"Users\" SET \"Role\" = 1 WHERE \"Email\" = '<email>';"
 3. Повторный POST /api/auth/login - роль зашивается в токен в момент логина.
 4. Матрица: без токена 401; Client на чужом/админском 403; Admin 200/201.
 
